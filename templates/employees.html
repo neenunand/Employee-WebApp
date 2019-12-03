@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employees</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor1/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor1/animate/animate.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor1/select2/select2.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor1/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main1.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+    
+  <div class="limiter">
+    <div class="container-table100">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent rounded-0 pt-0 px-0 mb-0">
+          <li class="breadcrumb-item">Employees</li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="/employee/tasks">Tasks</a></li>
+          <li class="breadcrumb-item" aria-current="page"><a href="/user/api/logout">Logout </a><span>{{ user.get_username }}</span></li>
+        </ol>
+      </nav>
+
+      <div class="wrap-table100">
+        <div class="table100 ver1 m-b-110">
+          <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1">Sl No</th>
+                  <th class="cell100 column2">Firstname</th>
+                  <th class="cell100 column3">Lastname</th>
+                  <th class="cell100 column4">EMP Id</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <div class="table100-body js-pscroll">
+            <table>
+              <tbody>
+                <!-- ko foreach: employees_list -->
+                  <tr class="row100 body" data-bind="click: $root.getDetails">
+                    <td class="cell100 column1"><!-- ko text: $index()+1 --><!-- /ko --></td>
+                    <td class="cell100 column2"><!-- ko text: firstname --><!-- /ko --></td>
+                    <td class="cell100 column3"><!-- ko text: lastname --><!-- /ko --></td>
+                    <td class="cell100 column4"><!-- ko text: emp_id --><!-- /ko --></td>
+                  </tr>
+                <!-- /ko -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap-table100">
+        <div class="table100 ver1 m-b-110">
+          <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1" data-bind="click: createEmployee">+ Create New Employee</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+<!--===============================================================================================-->  
+    <script src="{% static 'vendor1/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'vendor1/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'vendor1/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'vendor1/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+    <script src="{% static 'vendor1/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script>
+        $('.js-pscroll').each(function(){
+            var ps = new PerfectScrollbar(this);
+
+            $(window).on('resize', function(){
+                ps.update();
+            })
+        });
+            
+        
+    </script>
+<!--===============================================================================================-->
+  <script src="{% static 'js/knockout-3.5.0.js' %}"></script>
+  <script src="{% static 'js/main1.js' %}"></script>
+  <script src="{% static 'js/employees.js' %}"></script>
+
+</body>
+</html>
