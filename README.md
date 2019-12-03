@@ -6,7 +6,7 @@ Employee web application provides an employer to signup and login inorder to man
 Setup project
 
 Python version - 3.5
-Command to create virtual environment - virtualenv -p python3.5 venv
+Command to create virtual environment - virtualenv -p python3 venv
 Command to activate Virtual environment - source venv/bin/activate
 External libraries are in requirement.txt file, to install requirements - pip install -r requirements.txt
 If you install a library, to add it in requirements.txt - pip freeze > requirements.txt
